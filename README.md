@@ -1,20 +1,60 @@
-/*
-Food Finder - Advanced Version
-Features:
-1. Google Maps API Integration
-2. Filter: Pure Veg, No Onion-Garlic, Jain-Friendly
-3. User Reviews & Ratings
-4. MongoDB Database for storing places
-5. Express.js Backend for API calls
-6. React.js Frontend for UI
-*/
+# Pure-veg Food Finder
 
-// Project Structure:
-// - frontend (React.js)
-// - backend (Node.js + Express.js)
-// - database (MongoDB)
+## 📝 Project Overview
+**Food Finder** is a web app designed to help users locate hotels and restaurants that offer **100% vegetarian food**, with specialized filters for **No Onion & Garlic (Satvik)**.
 
-// Backend (server.js - Node.js + Express.js)
+## 🚀 Features
+- 🌍 **Google Maps API Integration** for location-based searches.
+- 🏨 **Search for Pure Veg Hotels & Restaurants**.
+- 🍛 **Filter Options:**
+  - ✅ Pure Veg
+  - 🚫 No Onion-Garlic (Satvik)
+- ⭐ **User Reviews & Ratings**.
+- 📌 **MongoDB Database** for storing places.
+- 🔥 **Express.js Backend & React.js Frontend**.
+
+## 📂 Project Structure
+```
+FoodFinder/
+│-- frontend/         # React.js (UI)
+│-- backend/          # Node.js + Express.js (API)
+│-- database/         # MongoDB for storing locations
+│-- .env              # Configuration file (MongoDB URI)
+│-- README.md         # Documentation
+```
+
+## 🛠 Installation & Setup
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/yourusername/FoodFinder.git
+   cd FoodFinder
+   ```
+2. **Install dependencies:**
+   ```sh
+   npm install
+   ```
+3. **Set up environment variables:**
+   Create a `.env` file in the root directory and add:
+   ```env
+   MONGO_URI=your_mongodb_connection_string
+   ```
+4. **Run the backend server:**
+   ```sh
+   npm start
+   ```
+5. **Test the API:**
+   Open `http://localhost:5000/places` in your browser or use Postman.
+
+## 💡 Contributing
+We welcome contributions! Feel free to **fork this repo**, submit issues, or add new features.
+
+## 📜 License
+This project is **open-source** and available under the **MIT License**.
+
+---
+
+## 🔧 Backend Code (server.js)
+```javascript
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -33,7 +73,7 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 const placeSchema = new mongoose.Schema({
   name: String,
   location: String,
-  type: String, // "Pure Veg", "No Onion-Garlic", "Jain"
+  type: String, // "Pure Veg", "No Onion-Garlic"
   rating: Number,
   reviews: [String]
 });
@@ -52,43 +92,4 @@ app.post('/add-place', async (req, res) => {
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
-/* README.md */
-
-/*
-# Food Finder
-
-A web app that helps users find hotels and restaurants offering 100% vegetarian food with options for No Onion & Garlic (Satvik) and Jain food.
-
-## Features
-- 🌍 Google Maps API Integration
-- 🏨 Search for Pure Veg Hotels & Restaurants
-- 🍛 Filter: Pure Veg, No Onion-Garlic, Jain-Friendly
-- ⭐ User Reviews & Ratings
-- 📌 MongoDB Database to store places
-- 🔥 Express.js Backend & React.js Frontend
-
-## Installation & Setup
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/yourusername/FoodFinder.git
-   cd FoodFinder
-   ```
-2. Install dependencies:
-   ```sh
-   npm install
-   ```
-3. Set up a `.env` file:
-   ```env
-   MONGO_URI=your_mongodb_connection_string
-   ```
-4. Run the backend server:
-   ```sh
-   npm start
-   ```
-5. Open `http://localhost:5000/places` to test the API.
-
-## Contributing
-Feel free to fork this repo and add more features! 😊
-
-*/
+```
