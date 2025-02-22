@@ -37,7 +37,7 @@ FoodFinder/
 
 ### 1️⃣ Clone the repository:
 ```sh
-git clone https://github.com/yourusername/FoodFinder.git
+git clone https://github.com/DibyadyutiDas/FoodFinder.git
 cd FoodFinder
 ```
 
